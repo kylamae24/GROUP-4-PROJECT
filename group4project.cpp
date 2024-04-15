@@ -1,10 +1,28 @@
 #include<iostream>
 #include<stdlib.h>
 #include<windows.h>
-
+#include<climits>
 
 
 using namespace std;
+
+//Introduction
+
+//class register
+class Uregister
+{
+	public:
+
+	    string NuserName,Nemail, Ausername, Aemail;
+	    int Npassword,Apassword;
+
+
+
+
+
+};
+
+
 
 void showdata()
 {
@@ -21,20 +39,26 @@ void showdata()
 
 }
 
+//variables
 string arr1[20],arr2[20],arr3[20],arr4[20],arr5[20],arr6[20],arr7[20];
 
 int total=0;
 
+//Enter function
+//Function where you can enter a students
 void enter()
 
 {
 
 		int ch=0;
+		cout<<"Elpidio Quirino\n\n";
 
 			cout<<"How many students do u want to enter??"<<endl;
 
 			cin>>ch;
+            cin.ignore(INT_MAX, '\n');
 
+			//condition
 			if(total==0)
 
 			{
@@ -47,12 +71,14 @@ void enter()
 
 
 				cout<<"\nEnter the Data of student "<<i+1<<endl;
+				cout<<"Enter to start\n";
+				cin.ignore(INT_MAX, '\n');
+				cout<<"\n";
 
-				cout<<"Warning!!! Special characters and spaces are not allowed.\n\n";
 
 				cout<<"Enter name: ";
 
-				cin>>arr1[i];
+				getline(cin,arr1[i]);
 
 				cout<<"Enter Roll no: ";
 
@@ -77,6 +103,7 @@ void enter()
 				cout<<"Email Address: ";
 
 				cin>>arr7[i];
+				system("cls");
 
 
 
@@ -95,12 +122,13 @@ void enter()
 			{
 
 				cout<<"\nEnter the Data of student: "<<i+1<<endl;
-
-				cout<<"Warning!!! Special characters and spaces are not allowed.\n\n";
+				cout<<"Enter to start\n";
+				cin.ignore(INT_MAX, '\n');
+				cout<<"\n";
 
 				cout<<"Enter name: ";
 
-				cin>>arr1[i];
+				getline(cin, arr1[i]);
 
 				cout<<"Enter Roll no: ";
 
@@ -124,6 +152,7 @@ void enter()
 
 				cout<<"Email Address: ";
 				cin>>arr7[i];
+				system("cls");
 
 			}
 
@@ -135,10 +164,12 @@ void enter()
 
 }
 
+//show function
+//function for showing stored students data
 void show()
 
 {
-
+    //if total is equal to 0
 	if(total==0)
 
 	{
@@ -147,6 +178,7 @@ void show()
 
 	}
 
+	//Condition
 	else{
 
 		for(int i=0;i<total;i++)
@@ -177,6 +209,8 @@ void show()
 
 }
 
+//search function
+//this function is for searching students
 void search()
 
 {
@@ -207,7 +241,7 @@ void search()
 
 						cout<<"Name "<<arr1[i]<<endl;
 
-	    	        	cout<<"Roll no "<<arr2[i]<<endl;
+						cout<<"Roll no "<<arr2[i]<<endl;
 
 	    		        cout<<"Course "<<arr3[i]<<endl;
 
@@ -227,6 +261,8 @@ void search()
 
 }
 
+//update function
+//this function is for updating or changing the data of a students
 void update()
 
 {
@@ -313,6 +349,8 @@ void update()
 
 
 
+//delete function
+//function for deleting datarecord of a student
 void deleterecord()
 
 {
@@ -405,10 +443,47 @@ void deleterecord()
 
 }
 
+//main function
 main()
 
 {
+
     showdata();
+
+
+	Uregister newUser;
+
+	//register
+    cout<<"\tRegister\n\n";
+	cout<<"Email Address: ";
+	cin>>newUser.Nemail;
+	cout<<"Username: ";
+	cin>>newUser.NuserName;
+	cout<<"Password: ";
+	cin>>newUser.Npassword;
+	cout<<"Please wait...\n";
+	Sleep(500);
+	system("cls");
+
+	//log in
+	cout<<"\tLog In\n\n";
+	cout<<"Username: ";
+	cin>>newUser.Ausername;
+	cout<<"Password: ";
+	cin>>newUser.Apassword;
+
+	//condition security
+	if(newUser.NuserName == newUser.Ausername && newUser.Npassword == newUser.Apassword){
+	    cout<<"\nPlease wait...";
+            Sleep(500);
+            system("cls");
+
+
+
+
+
+
+
 
 
 	int value;
@@ -486,6 +561,15 @@ main()
 
 	}
 
+
 }
+
+	}else{
+	    cout<<"Erorro, Please try again";
+
+
+	}
+
+
 
 }
